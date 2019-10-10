@@ -16,9 +16,13 @@ def get_words(pos_sent):
     :param pos_sent: [string] The POS tagged stentence
     :return:
     """
+    pattern = '(,+|\.+|\w+)/'
 
     # add the words of the sentence to this list in sequential order.
-    word_list = []
+    
+    word_list = re.findall(pattern, pos_sent)
+    print(word_list)
+    
 
     # Your code goes here
 
@@ -32,6 +36,8 @@ def get_words(pos_sent):
 
 def get_pos_tags(pos_sent):
     # Your code goes here
+    
+
     pass
 
 
