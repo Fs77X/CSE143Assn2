@@ -39,7 +39,7 @@ def get_words(pos_sent):
 def get_pos_tags(pos_sent):
     # Your code goes here
     pattern = '\w+/(\w+[$]{0,1})'
-    
+
     word_list = re.findall(pattern, pos_sent)
     print(word_list)
     getPos = []
@@ -68,6 +68,9 @@ def get_noun_phrases(pos_sent):
     # Your code goes here
 
     pattern = '(?:\w+\/DT\s)?(?:\w+\/JJ\s*)?(?:\w+\/NN(?:S|P)?\s)+'
+    noun_phrases = re.findall(pattern, pos_sent)
+    for i in range(len(noun_phrases)):
+        noun_phrases[i] = get_words(noun_phrases[i])
 
     # getWord = '(\w+)/'
     # DTJJ = '(DT|JJ)'
@@ -77,11 +80,6 @@ def get_noun_phrases(pos_sent):
     # pattwoJJNN = '(\w+)/(?:JJ|NN)'
     # pattwoNN = '(\w+)/NN'
 
-    noun_phrases = re.findall(pattern, pos_sent)
-    for i in range(len(noun_phrases)):
-        noun_phrases[i] = get_words(noun_phrases[i])
-        
-    
     # realNouns = []
     # i = 0
     # while i <= len(noun_phrases) - 1:
