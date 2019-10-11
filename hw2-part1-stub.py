@@ -1,4 +1,6 @@
-import argparse, re, nltk
+import argparse
+import re
+import nltk
 import operator
 
 # https://docs.python.org/3/howto/regex.html
@@ -21,7 +23,7 @@ def get_words(pos_sent):
     pattern = '(\w+)/'
 
     # add the words of the sentence to this list in sequential order.
-    
+
     word_list = re.findall(pattern, pos_sent)
     print(word_list)
     # Your code goes here
@@ -45,8 +47,6 @@ def get_pos_tags(pos_sent):
             getPos.append(word_list[i])
 
     return getPos
-
-
 
 
 def get_noun_phrases(pos_sent):
@@ -79,9 +79,10 @@ def get_noun_phrases(pos_sent):
         # print('i at: ' + str(i))
         if re.search(DT, noun_phrases[i]) and i != len(noun_phrases) - 1:
             if re.search(NN, noun_phrases[i+1]):
-                realNouns.append(re.findall(pattwoDT, noun_phrases[i])[0] + ' ' + re.findall(pattwoNN, noun_phrases[i+1])[0])
+                realNouns.append(re.findall(pattwoDT, noun_phrases[i])[
+                                 0] + ' ' + re.findall(pattwoNN, noun_phrases[i+1])[0])
                 i = i + 2
-            else:       #if not re.search(NN, noun_phrases[i+1])
+            else:  # if not re.search(NN, noun_phrases[i+1])
                 i = i + 1
         elif re.search(NN, noun_phrases[i]):
             realNouns.append(re.findall(pattwoNN, noun_phrases[i])[0])
@@ -110,7 +111,6 @@ def read_stories(fname):
     return stories
 
 
-
 def most_freq_noun_phrase(pos_sent_fname, verbose=True):
     """
 
@@ -130,25 +130,27 @@ def most_freq_noun_phrase(pos_sent_fname, verbose=True):
         print(nounInStory)
         for noun in nounInStory:
             dic4Nouns[noun] = nounInStory.count(noun)
-        sorted_dic = list(sorted(dic4Nouns.items(), key =operator.itemgetter(1)))
+        sorted_dic = list(
+            sorted(dic4Nouns.items(), key=operator.itemgetter(1)))
         sorted_dic.reverse()
-       
+
         print(sorted_dic)
         for i in range(0, 3):
             # print(sorted_dic[i][0].lower())
             # sorted_dic[i] = (sorted_dic[i][0].lower(), sorted_dic[i][1])
             most_common.append(sorted_dic[i])
 
-
         # do stuff with the story
 
         # end your code
         if verbose:
-            print("The most freq NP in document[" + str(story_id) + "]: " + str(most_common))
+            print(
+                "The most freq NP in document[" + str(story_id) + "]: " + str(most_common))
         story_phrases[story_id] = most_common
         story_id += 1
 
     return story_phrases
+
 
 def most_freq_pos_tags(pos_sent_fname, verbose=True):
     """
@@ -161,17 +163,32 @@ def most_freq_pos_tags(pos_sent_fname, verbose=True):
     for story in read_stories(pos_sent_fname):
         most_common = []
         # your code starts here
+        dic4POS = {}
+        posInStory = get_pos_tags(story)
+        print('story num: ' + str(story_id))
+        print(posInStory)
+        for pos in posInStory:
+            dic4POS[pos] = posInStory.count(pos)
+        sorted_dic = list(
+            sorted(dic4POS.items(), key=operator.itemgetter(1)))
+        sorted_dic.reverse()
+
+        print(sorted_dic)
+        for i in range(0, 3):
+            # print(sorted_dic[i][0].lower())
+            # sorted_dic[i] = (sorted_dic[i][0].lower(), sorted_dic[i][1])
+            most_common.append(sorted_dic[i])
 
         # do stuff with the story
 
         # end your code
         if verbose:
-            print("The most freq pos tags in document[" + str(story_id) + "]: " + str(most_common))
+            print(
+                "The most freq pos tags in document[" + str(story_id) + "]: " + str(most_common))
         story_tags[story_id] = most_common
         story_id += 1
 
     return story_tags
-
 
 
 def test_get_words():
@@ -206,11 +223,11 @@ def test_get_pos_tags():
     retval = str(get_pos_tags(pos_sent))
     print("retval:", retval)
 
-    gold = str(['DT', 'NNS', 'VBP', 'JJ', 'CC', 'DT', 'NNS', 'VBP', 'RBR', 'JJ', 'IN', 'NNS'])
+    gold = str(['DT', 'NNS', 'VBP', 'JJ', 'CC', 'DT',
+                'NNS', 'VBP', 'RBR', 'JJ', 'IN', 'NNS'])
     assert retval == gold, "test Fail:\n {} != {}".format(retval, gold)
 
     print("Pass")
-
 
 
 def test_get_noun_phrases():
@@ -250,10 +267,12 @@ def test_most_freq_noun_phrase(infile="fables-pos.txt"):
         print("gold:\t", gold)
         print("retval:\t", retval)
 
-        assert retval == gold, "test Fail:\n {} != {}".format(noun_phrase[7], gold)
+        assert retval == gold, "test Fail:\n {} != {}".format(
+            noun_phrase[7], gold)
         print("Pass")
     else:
         print("Test fail: path does not exist;", infile)
+
 
 def test_most_freq_pos_tags(infile="fables-pos.txt"):
     """
@@ -272,7 +291,8 @@ def test_most_freq_pos_tags(infile="fables-pos.txt"):
         print("gold:\t", gold)
         print("retval:\t", retval)
 
-        assert retval == gold, "test Fail:\n {} != {}".format(pos_tags[7], gold)
+        assert retval == gold, "test Fail:\n {} != {}".format(
+            pos_tags[7], gold)
         print("Pass")
     else:
         print("Test fail: path does not exist;", infile)
@@ -292,10 +312,10 @@ if __name__ == '__main__':
     run_tests()
 
     parser = argparse.ArgumentParser(description='Assignment 2')
-    parser.add_argument('-i', dest="pos_sent_fname", default="blogs-pos.txt",  help='File name that contant the POS.')
+    parser.add_argument('-i', dest="pos_sent_fname",
+                        default="blogs-pos.txt",  help='File name that contant the POS.')
 
     args = parser.parse_args()
     pos_sent_fname = args.pos_sent_fname
 
     most_freq_noun_phrase(pos_sent_fname)
-
