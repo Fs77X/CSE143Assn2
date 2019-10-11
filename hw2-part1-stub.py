@@ -72,11 +72,11 @@ def get_noun_phrases(pos_sent):
     pattwoNN = '(\w+)/NN'
 
     noun_phrases = re.findall(pattern, pos_sent)
-    print(noun_phrases)
+    # print(noun_phrases)
     realNouns = []
     i = 0
     while i <= len(noun_phrases) - 1:
-        print('i at: ' + str(i))
+        # print('i at: ' + str(i))
         if re.search(DT, noun_phrases[i]) and i != len(noun_phrases) - 1:
             if re.search(NN, noun_phrases[i+1]):
                 realNouns.append(re.findall(pattwoDT, noun_phrases[i])[0] + ' ' + re.findall(pattwoNN, noun_phrases[i+1])[0])
@@ -89,7 +89,7 @@ def get_noun_phrases(pos_sent):
         else:
             i = i + 1
 
-    print(realNouns)
+    # print(realNouns)
     noun_phrases = realNouns
 
     # END OF YOUR CODE
@@ -124,11 +124,20 @@ def most_freq_noun_phrase(pos_sent_fname, verbose=True):
         # your code starts here
         dic4Nouns = {}
         nounInStory = get_noun_phrases(story)
+        for j in range(len(nounInStory)):
+            nounInStory[j] = nounInStory[j].lower()
+        print('story num: ' + str(story_id))
+        print(nounInStory)
         for noun in nounInStory:
             dic4Nouns[noun] = nounInStory.count(noun)
         sorted_dic = list(sorted(dic4Nouns.items(), key =operator.itemgetter(1)))
         sorted_dic.reverse()
+       
         print(sorted_dic)
+        for i in range(0, 3):
+            # print(sorted_dic[i][0].lower())
+            # sorted_dic[i] = (sorted_dic[i][0].lower(), sorted_dic[i][1])
+            most_common.append(sorted_dic[i])
 
 
         # do stuff with the story
