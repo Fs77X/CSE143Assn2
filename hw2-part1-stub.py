@@ -38,13 +38,14 @@ def get_words(pos_sent):
 
 def get_pos_tags(pos_sent):
     # Your code goes here
-    pattern = '(\w+)'
+    pattern = '\w+/(\w+[$]{0,1})'
+    
     word_list = re.findall(pattern, pos_sent)
     print(word_list)
     getPos = []
     for i in range(len(word_list)):
-        if i % 2 != 0:
-            getPos.append(word_list[i])
+        # if i % 2 != 0:
+        getPos.append(word_list[i])
 
     return getPos
 
@@ -65,23 +66,37 @@ def get_noun_phrases(pos_sent):
     noun_phrases = []
 
     # Your code goes here
-    pattern = '(\w+/DT|\w+/NN)'
-    DT = '(DT)'
+
+    pattern = '(\w+/\w+)'
+    getWord = '(\w+)/'
+    DTJJ = '(DT|JJ)'
+    JJNN = '(JJ|NN)'
     NN = '(NN)'
-    pattwoDT = '(\w+)/DT'
+    pattwoDTJJ = '(\w+)/(?:DT|JJ)'
+    pattwoJJNN = '(\w+)/(?:JJ|NN)'
     pattwoNN = '(\w+)/NN'
 
     noun_phrases = re.findall(pattern, pos_sent)
-    # print(noun_phrases)
     realNouns = []
     i = 0
     while i <= len(noun_phrases) - 1:
-        # print('i at: ' + str(i))
-        if re.search(DT, noun_phrases[i]) and i != len(noun_phrases) - 1:
-            if re.search(NN, noun_phrases[i+1]):
-                realNouns.append(re.findall(pattwoDT, noun_phrases[i])[
-                                 0] + ' ' + re.findall(pattwoNN, noun_phrases[i+1])[0])
-                i = i + 2
+        # print(realNouns)
+        if re.findall(DTJJ, noun_phrases[i]) and i < len(noun_phrases) - 1:
+            if re.findall(JJNN, noun_phrases[i+1]):
+                print('DTJJ: ' + re.findall(pattwoDTJJ, noun_phrases[i])[0])
+                print('JJNN: ' + re.findall(pattwoJJNN, noun_phrases[i+1])[0])
+                leConcat = re.findall(pattwoDTJJ, noun_phrases[i])[0] + ' ' + re.findall(pattwoJJNN, noun_phrases[i+1])[0]
+                counter = i + 2
+                stop = False
+                if counter <= len(noun_phrases):
+                    while counter <= len(noun_phrases) - 1 and not stop:
+                        if re.findall(JJNN, noun_phrases[counter]):
+                            leConcat = leConcat + ' ' + re.findall(pattwoJJNN, noun_phrases[counter])[0]
+                            counter = counter + 1
+                        else:
+                            stop = True
+                realNouns.append(leConcat)
+                i = counter
             else:  # if not re.search(NN, noun_phrases[i+1])
                 i = i + 1
         elif re.search(NN, noun_phrases[i]):
@@ -92,6 +107,17 @@ def get_noun_phrases(pos_sent):
 
     # print(realNouns)
     noun_phrases = realNouns
+
+    # realNouns = []
+    # i = 0
+    # while i <= len(noun_phrases) - 1:
+    #     # print('i at: ' + str(i))
+    #     if re.search(DT, noun_phrases[i]) and i != len(noun_phrases) - 1:
+    #         if re.search(NN, noun_phrases[i+1]):
+    #             leConcat = re.findall(pattwoDT, noun_phrases[i])[
+    #                              0] + ' ' + re.findall(pattwoNN, noun_phrases[i+1])[0]
+    #             counter = i + 2
+    #             stop = False
 
     # END OF YOUR CODE
 
@@ -127,7 +153,7 @@ def most_freq_noun_phrase(pos_sent_fname, verbose=True):
         for j in range(len(nounInStory)):
             nounInStory[j] = nounInStory[j].lower()
         print('story num: ' + str(story_id))
-        print(nounInStory)
+        # print(nounInStory)
         for noun in nounInStory:
             dic4Nouns[noun] = nounInStory.count(noun)
         sorted_dic = list(
@@ -302,7 +328,7 @@ def run_tests():
     test_get_words()
     test_get_pos_tags()
     test_get_noun_phrases()
-    test_most_freq_noun_phrase()
+    # test_most_freq_noun_phrase()
     test_most_freq_pos_tags()
 
 
