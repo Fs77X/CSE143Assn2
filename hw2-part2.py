@@ -1,4 +1,5 @@
 from nltk.corpus import wordnet as wn
+from contextlib import redirect_stdout
 
 # http://stevenloria.com/tutorial-wordnet-textblob/
 # http://www.nltk.org/howto/wordnet.html
@@ -127,16 +128,20 @@ def print_other_lexical_rel():
 
 
 if __name__ == '__main__':
-    print_syn_lemmas('cock')
-    print_def_exp(wn.synset("cock.n.01"))
-    print_lexical_rel(wn.synset("cock.n.01"))
-    cock = wn.synset('cock.n.01')
-    ball = wn.synset('ball.n.05')
-    print('Path similarity between w1 (cock) and w2 (ball), is: ' +
-          str(wn.path_similarity(cock, ball)))
-    stuff = ['dog.n.01', 'man.n.01', 'whale.n.01',
-             'bark.n.01', 'cat.n.01']
-    highest_path_similarity(stuff)
+    fileOut = open('wordnet.txt', 'w') 
+    with redirect_stdout(fileOut):
+        print_syn_lemmas('cock')
+        print_def_exp(wn.synset("cock.n.01"))
+        print_lexical_rel(wn.synset("cock.n.01"))
+        cock = wn.synset('cock.n.01')
+        ball = wn.synset('ball.n.05')
+        print('Path similarity between w1 (cock) and w2 (ball), is: ' +
+                str(wn.path_similarity(cock, ball)))
+        stuff = ['dog.n.01', 'man.n.01', 'whale.n.01',
+                    'bark.n.01', 'cat.n.01']
+        highest_path_similarity(stuff)
+
+    fileOut.close()
     
     # print_syn_lemmas('ball')
     # print_def_exp(wn.synset("ball.n.05"))
