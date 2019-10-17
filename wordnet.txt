@@ -1,0 +1,94 @@
+1. Synsets and Lemmas
+Word: cock
+
+Synsets:
+Synset('cock.n.01')
+Synset('stopcock.n.01')
+Synset('hammer.n.01')
+Synset('cock.n.04')
+Synset('cock.n.05')
+Synset('cock.v.01')
+Synset('cock.v.02')
+Synset('tittup.v.01')
+
+First synset: Synset('cock.n.01')
+
+Lemma names: 
+cock
+prick
+dick
+shaft
+pecker
+peter
+tool
+putz
+
+Last lemmas: Lemma('cock.n.01.putz')
+
+Synset of Last lemmas: Synset('cock.n.01')
+
+Synset('cock.n.01'): lemma_name['cock', 'prick', 'dick', 'shaft', 'pecker', 'peter', 'tool', 'putz']
+Synset('stopcock.n.01'): lemma_name['stopcock', 'cock', 'turncock']
+Synset('hammer.n.01'): lemma_name['hammer', 'cock']
+Synset('cock.n.04'): lemma_name['cock', 'rooster']
+Synset('cock.n.05'): lemma_name['cock']
+Synset('cock.v.01'): lemma_name['cock']
+Synset('cock.v.02'): lemma_name['cock']
+Synset('tittup.v.01'): lemma_name['tittup', 'swagger', 'ruffle', 'prance', 'strut', 'sashay', 'cock']
+
+Lemmas of cock:
+Lemma('cock.n.01.cock')
+Lemma('stopcock.n.01.cock')
+Lemma('hammer.n.01.cock')
+Lemma('cock.n.04.cock')
+Lemma('cock.n.05.cock')
+Lemma('cock.v.01.cock')
+Lemma('cock.v.02.cock')
+Lemma('tittup.v.01.cock')
+
+
+2. Definitions and Examples
+Synset: Synset('cock.n.01')
+Definition: obscene terms for penis
+
+Example: []
+
+Synsets of first lemma cock: 
+Synset('cock.n.01') : definition ( obscene terms for penis)
+Synset('stopcock.n.01') : definition ( faucet consisting of a rotating device for regulating flow of a liquid)
+Synset('hammer.n.01') : definition ( the part of a gunlock that strikes the percussion cap when the trigger is pulled)
+Synset('cock.n.04') : definition ( adult male chicken)
+Synset('cock.n.05') : definition ( adult male bird)
+Synset('cock.v.01') : definition ( tilt or slant to one side)
+Synset('cock.v.02') : definition ( set the trigger of a firearm back for firing)
+Synset('tittup.v.01') : definition ( to walk with a lofty proud gait, often in an attempt to impress others)
+
+
+3. Lexical Relations
+Synset: Synset('cock.n.01')
+
+Hypernyms: [Synset('penis.n.01')]
+
+Hyponyms: []
+
+Root hypernyms: [Synset('entity.n.01')]
+
+Hypernym path length of Synset('cock.n.01') = 1 
+
+Path[0]:
+entity.n.01
+physical_entity.n.01
+thing.n.12
+part.n.03
+body_part.n.01
+organ.n.01
+erectile_organ.n.01
+penis.n.01
+cock.n.01
+
+
+Path similarity between w1 (cock) and w2 (ball), is: 0.14285714285714285
+[('dog.n.01', 'cat.n.01', 0.2), ('man.n.01', 'whale.n.01', 0.2), ('whale.n.01', 'man.n.01', 0.2), ('dog.n.01', 'man.n.01', 0.14285714285714285), ('dog.n.01', 'whale.n.01', 0.14285714285714285), ('dog.n.01', 'bark.n.01', 0.1111111111111111), ('man.n.01', 'bark.n.01', 0.1111111111111111), ('whale.n.01', 'bark.n.01', 0.1111111111111111), ('bark.n.01', 'man.n.01', 0.1111111111111111), ('bark.n.01', 'whale.n.01', 0.1111111111111111), ('man.n.01', 'cat.n.01', 0.08333333333333333), ('whale.n.01', 'cat.n.01', 0.08333333333333333), ('cat.n.01', 'man.n.01', 0.08333333333333333), ('cat.n.01', 'whale.n.01', 0.08333333333333333), ('bark.n.01', 'cat.n.01', 0.07142857142857142), ('cat.n.01', 'bark.n.01', 0.07142857142857142)]
+Best path similarity: 
+dog.n.01 cat.n.01
+man.n.01 whale.n.01
