@@ -49,6 +49,8 @@ def read_reviews(file_name):
 # Dont change the code above here
 ######################################################################
 
+def getKey(item):
+    return item[2]
 
 def process_reviews(file_name):
     positive_texts, negative_texts, first_sent = read_reviews(file_name)
@@ -136,27 +138,34 @@ def process_reviews(file_name):
 
     cfdistPos = ConditionalFreqDist(bigramPos)
     cfdistNeg = ConditionalFreqDist(bigramNeg)
-    fileOut = open('positive-bigram-freq.txt', 'w') 
+    posTup = []
+    negTup = []
     for word in cfdistPos:
         for arr in cfdistPos[word].most_common():
-            fileOut.write(word + ' ' + arr[0] + ' ' + str(arr[1]) + '\n')
-
-
-    fileOut.close()
-
-    fileOut = open('negative-bigram-freq.txt', 'w') 
+            posTup.append((word, arr[0], arr[1]))
 
     for word in cfdistNeg:
         for arr in cfdistNeg[word].most_common():
-            fileOut.write(word + ' ' + arr[0] + ' ' + str(arr[1]) + '\n')
+            negTup.append((word, arr[0], arr[1]))
+
+    pos_tup = sorted(posTup, key=getKey, reverse = True)
+    neg_tup = sorted(negTup, key=getKey, reverse = True)
+
+    
+    fileOut = open('positive-bigram-freq.txt', 'w') 
+    for pair in pos_tup:
+        fileOut.write(pair[0] + ' ' + pair[1] + ' ' + str(pair[2]) + '\n')
+
+
 
     fileOut.close()
 
+    fileOut = open('negative-bigram-freq.txt', 'w')
+    for pair in neg_tup:
+        fileOut.write(pair[0] + ' ' + pair[1] + ' ' + str(pair[2]) + '\n')
 
-    # fileOut = open('negative-bigram-freq.txt', 'w') 
-    # with redirect_stdout(fileOut):
-    #     cfdistNeg.tabulate()
-    # fileOut.close()
+    fileOut.close()
+
 
     posText = nltk.Text(pos_noStop)
     negText = nltk.Text(neg_noStop)
