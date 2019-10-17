@@ -166,6 +166,7 @@ def process_reviews(file_name):
         for arr in cfdistNeg[word].most_common():
             negTup.append((word, arr[0], arr[1]))
 
+
     pos_tup = sorted(posTup, key=getKey, reverse = True)
     neg_tup = sorted(negTup, key=getKey, reverse = True)
 

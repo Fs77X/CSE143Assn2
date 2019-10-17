@@ -73,4 +73,6 @@ top 5 5gramneg
 pos text: chez capo; highly recommend; mashed potatoes; pancake house; san francisco; millbrae pancake; wine list; rosa negra; several times; worth trip; big city; food excellent; sure try; head chef; something everyone; long time; 00pm tuesday; ala carte; outdoor patio; ravioli browned
 neg text: prime rib; coral grill; dining experience; fried rice; number one; crab legs; fine dining; taco bell; tourist trap; local boys; needless say; looked like; 227 bistro; health department; speak manager; sunset restaurant; wait staff; medium rare; half hour; sub par
 
-3.) prob of w1 * prob of w2 in w1
+3.) p(w1) * p(w2|w1) (where w1 = excellent and w2 = restaurant)= (f(W1)/total in unigram) * (f(w2 in w1)/ total in bigrams) = (48/5,473) * (2/15,091) = 0.008770327 + 0.000132529 = 0.008902856
+
+4.) 
