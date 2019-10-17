@@ -72,57 +72,6 @@ def get_noun_phrases(pos_sent):
     for i in range(len(noun_phrases)):
         noun_phrases[i] = get_words(noun_phrases[i])
 
-    # getWord = '(\w+)/'
-    # DTJJ = '(DT|JJ)'
-    # JJNN = '(JJ|NN)'
-    # NN = '(NN)'
-    # pattwoDTJJ = '(\w+)/(?:DT|JJ)'
-    # pattwoJJNN = '(\w+)/(?:JJ|NN)'
-    # pattwoNN = '(\w+)/NN'
-
-    # realNouns = []
-    # i = 0
-    # while i <= len(noun_phrases) - 1:
-    #     # print(realNouns)
-    #     if re.findall(DTJJ, noun_phrases[i]) and i < len(noun_phrases) - 1:
-    #         if re.findall(JJNN, noun_phrases[i+1]):
-    #             print('DTJJ: ' + re.findall(pattwoDTJJ, noun_phrases[i])[0])
-    #             print('JJNN: ' + re.findall(pattwoJJNN, noun_phrases[i+1])[0])
-    #             leConcat = re.findall(pattwoDTJJ, noun_phrases[i])[0] + ' ' + re.findall(pattwoJJNN, noun_phrases[i+1])[0]
-    #             counter = i + 2
-    #             stop = False
-    #             if counter <= len(noun_phrases):
-    #                 while counter <= len(noun_phrases) - 1 and not stop:
-    #                     if re.findall(JJNN, noun_phrases[counter]):
-    #                         leConcat = leConcat + ' ' + re.findall(pattwoJJNN, noun_phrases[counter])[0]
-    #                         counter = counter + 1
-    #                     else:
-    #                         stop = True
-    #             realNouns.append(leConcat)
-    #             i = counter
-    #         else:  # if not re.search(NN, noun_phrases[i+1])
-    #             i = i + 1
-    #     elif re.search(NN, noun_phrases[i]):
-    #         realNouns.append(re.findall(pattwoNN, noun_phrases[i])[0])
-    #         i = i + 1
-    #     else:
-    #         i = i + 1
-
-    # # print(realNouns)
-    # noun_phrases = realNouns
-
-    # realNouns = []
-    # i = 0
-    # while i <= len(noun_phrases) - 1:
-    #     # print('i at: ' + str(i))
-    #     if re.search(DT, noun_phrases[i]) and i != len(noun_phrases) - 1:
-    #         if re.search(NN, noun_phrases[i+1]):
-    #             leConcat = re.findall(pattwoDT, noun_phrases[i])[
-    #                              0] + ' ' + re.findall(pattwoNN, noun_phrases[i+1])[0]
-    #             counter = i + 2
-    #             stop = False
-
-    # END OF YOUR CODE
 
     return noun_phrases
 
@@ -331,7 +280,7 @@ def run_tests():
     test_get_words()
     test_get_pos_tags()
     test_get_noun_phrases()
-    test_most_freq_noun_phrase()
+    # test_most_freq_noun_phrase()
     test_most_freq_pos_tags()
 
 

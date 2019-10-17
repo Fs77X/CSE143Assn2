@@ -3,7 +3,8 @@ import nltk
 import argparse
 from nltk.corpus import stopwords
 from nltk.probability import ConditionalFreqDist, FreqDist
-from nltk.util import bigrams
+from nltk.tokenize import sent_tokenize, word_tokenize
+from nltk.util import bigrams, ngrams
 import operator
 from contextlib import redirect_stdout
 
@@ -59,32 +60,43 @@ def process_reviews(file_name):
     # print(len(negative_texts))
 
     # Your code goes here
-    pattern = '(?:\w+)?(?:[_]{0,1}\w+)?(?:[\']{0,1}\w+)'
+    pattern = "(?:\w+)?(?:[_]{0,1}\w+)?(?:[\']{0,1}\w+)"
+    # pattern = '\w+'
     pos_rev = []
     neg_rev = []
+
     for sent in positive_texts:
         pos_rev.append(re.findall(pattern, sent))
+
+
+    # print(pos_rev)
 
     for sent in negative_texts:
         neg_rev.append(re.findall(pattern, sent))
 
+
     pos_rev_words = []
     neg_rev_words = []
+
+
     for review in pos_rev:
         for word in review:
             pos_rev_words.append(word.lower())
-
     for review in neg_rev:
         for word in review:
             neg_rev_words.append(word.lower())
+ 
 
     print(len(pos_rev_words))
     print(len(neg_rev_words))
     stop = stopwords.words('english')
     pos_noStop = [w for w in pos_rev_words if w not in stop]
     neg_noStop = [w for w in neg_rev_words if w not in stop]
+    # print(pos_noStop)
     print(len(pos_noStop))
     print(len(neg_noStop))
+
+        
 
     fDistPos, fDistNeg = FreqDist(), FreqDist()
     for word in pos_noStop:
@@ -125,23 +137,69 @@ def process_reviews(file_name):
     cfdistPos = ConditionalFreqDist(bigramPos)
     cfdistNeg = ConditionalFreqDist(bigramNeg)
     fileOut = open('positive-bigram-freq.txt', 'w') 
-    with redirect_stdout(fileOut):
-        cfdistPos.tabulate()
+    for word in cfdistPos:
+        for arr in cfdistPos[word].most_common():
+            fileOut.write(word + ' ' + arr[0] + ' ' + str(arr[1]) + '\n')
+
+
     fileOut.close()
 
     fileOut = open('negative-bigram-freq.txt', 'w') 
-    with redirect_stdout(fileOut):
-        cfdistNeg.tabulate()
+
+    for word in cfdistNeg:
+        for arr in cfdistNeg[word].most_common():
+            fileOut.write(word + ' ' + arr[0] + ' ' + str(arr[1]) + '\n')
+
     fileOut.close()
+
+
+    # fileOut = open('negative-bigram-freq.txt', 'w') 
+    # with redirect_stdout(fileOut):
+    #     cfdistNeg.tabulate()
+    # fileOut.close()
 
     posText = nltk.Text(pos_noStop)
     negText = nltk.Text(neg_noStop)
 
     print('pos text ' + '; '.join(posText.collocation_list()))
-    print('pos text ' + '; '.join(negText.collocation_list()))
+    print('neg text ' + '; '.join(negText.collocation_list()))
 
-    # posText.collocations()
-    # negText.collocations()
+    trePosGrams = list(ngrams(pos_noStop, 3))
+    treNegGrams = list(ngrams(neg_noStop, 3))
+    forPosGrams = list(ngrams(pos_noStop, 4))
+    forNegGrams = list(ngrams(neg_noStop, 4))
+    fivPosGrams = list(ngrams(pos_noStop, 5))
+    fivNegGrams = list(ngrams(neg_noStop, 5))
+
+    fDistPos3, fDistNeg3, fDistPos4, fDistNeg4, fDistPos5, fDistNeg5 = FreqDist(trePosGrams), FreqDist(treNegGrams), FreqDist(forPosGrams), FreqDist(forNegGrams), FreqDist(fivPosGrams), FreqDist(fivNegGrams)
+    print('top 5 3grampos')
+    for word in fDistPos3.most_common(5):
+        print(word)
+
+    print('top 5 3gramneg')
+    for word in fDistNeg3.most_common(5):
+        print(word)
+
+    print('top 5 4grampos')
+    for word in fDistPos4.most_common(5):
+        print(word)
+    
+    print('top 5 4gramneg')
+    for word in fDistNeg4.most_common(5):
+        print(word)
+
+
+    print('top 5 5grampos')
+    for word in fDistPos5.most_common(5):
+        print(word)
+
+    print('top 5 5gramneg')
+    for word in fDistNeg5.most_common(5):
+        print(word)
+
+
+
+    
 
 
 
