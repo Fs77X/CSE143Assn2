@@ -62,19 +62,21 @@ def process_reviews(file_name):
     # print(len(negative_texts))
 
     # Your code goes here
-    pattern = "(?:\w+)?(?:[_]{0,1}\w+)?(?:[\']{0,1}\w+)"
-    # pattern = '\w+'
+    # pattern = "(?:\w+)?(?:[_]{0,1}\w+)?(?:[\']{0,1}\w+)"
+    pattern = '\w+'
     pos_rev = []
     neg_rev = []
 
     for sent in positive_texts:
-        pos_rev.append(re.findall(pattern, sent))
+        pos_rev.append(word_tokenize(sent))
+        # pos_rev.append(re.findall(pattern, sent))
 
 
     # print(pos_rev)
 
     for sent in negative_texts:
-        neg_rev.append(re.findall(pattern, sent))
+        neg_rev.append(word_tokenize(sent))
+        # neg_rev.append(re.findall(pattern, sent))
 
 
     pos_rev_words = []
@@ -94,9 +96,25 @@ def process_reviews(file_name):
     stop = stopwords.words('english')
     pos_noStop = [w for w in pos_rev_words if w not in stop]
     neg_noStop = [w for w in neg_rev_words if w not in stop]
-    # print(pos_noStop)
+    print(pos_noStop)
     print(len(pos_noStop))
     print(len(neg_noStop))
+
+    tempPos = []
+    tempNeg = []
+
+    for word in pos_noStop:
+        for items in re.findall(pattern, word):
+            tempPos.append(items)
+
+    for word in neg_noStop:
+        for items in re.findall(pattern, word):
+            tempNeg.append(items)
+
+    pos_noStop = tempPos
+    neg_noStop = tempNeg
+
+
 
         
 
