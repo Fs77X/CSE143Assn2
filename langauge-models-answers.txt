@@ -81,8 +81,12 @@
 
         or 
         (TA recommended, friend over heard it's supposed to be super simple and this is what we came up with)
+        Positive:
         p(excellent restaurant) =
         = 2/6,218 = 0.000321647
+        Negative:
+        = 1/8,873
+        = 0.000112701
 
 
 4.) 
