@@ -74,16 +74,19 @@
         neg text: prime rib; coral grill; dining experience; fried rice; number one; crab legs; fine dining; taco bell; tourist trap; local boys; needless say; looked like; 227 bistro; health department; speak manager; sunset restaurant; wait staff; medium rare; half hour; sub par
 
 3.) 
+        I don't know what's right, please accept answer is right?
         p(w1) * p(w2|w1) (where w1 = excellent and w2 = restaurant)
         = (f(W1)/total in unigram) * (f(w2 in w1)/ total in bigrams) 
         = (48/5,473) * (2/15,091)/ (56/5,473) = 0.00011359656
-        
-        p(w1) * p(w2) = p(excellent) * p(restaurant)
-        = (48/5,473) * (154/5,473) = 0.000246780626
+
+        or 
+
+        p(excellent restaurant) =
+        = 2/6,218 = 0.000321647
 
 
 4.) 
-        P(an) * P(excellent | an) * P(restaurant | an, excellent)
+        P(an) * P(excellent | an) * P(restaurant | an excellent)
         This order is going to be using the second order and a 4-gram would be third order
 
 5.)
