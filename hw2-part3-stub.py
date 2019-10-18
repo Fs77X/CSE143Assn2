@@ -154,6 +154,7 @@ def process_reviews(file_name):
     bigramPos = list(bigrams(pos_noStop))
     bigramNeg = list(bigrams(neg_noStop))
 
+    #way of getting cfdist to print was discussed with Drew, no code was shared he was just going over the gist of how he did it
     cfdistPos = ConditionalFreqDist(bigramPos)
     cfdistNeg = ConditionalFreqDist(bigramNeg)
     posTup = []

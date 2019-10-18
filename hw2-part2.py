@@ -107,9 +107,16 @@ def highest_path_similarity(data):
         currScore = lookSol[i][2]
         counter = 0
 
-    print('Best path similarity: ')
+    print('5. Best path similarity: ')
     for solution in sol:
         print(solution[0] + ' ' + solution[1])
+
+    print('6. Find path between 2 random sysnets: ')
+    star = wn.synset('star.n.01')
+    platinum = wn.synset('platinum.n.01')
+    print('Path similarity between w1 (star) and w2 (platinum), is: ' +
+                str(wn.path_similarity(star, platinum)))
+
     
 
 
@@ -135,7 +142,7 @@ if __name__ == '__main__':
         print_lexical_rel(wn.synset("cock.n.01"))
         cock = wn.synset('cock.n.01')
         ball = wn.synset('ball.n.05')
-        print('Path similarity between w1 (cock) and w2 (ball), is: ' +
+        print('4. Path similarity between w1 (cock) and w2 (ball), is: ' +
                 str(wn.path_similarity(cock, ball)))
         stuff = ['dog.n.01', 'man.n.01', 'whale.n.01',
                     'bark.n.01', 'cat.n.01']

@@ -87,8 +87,10 @@ penis.n.01
 cock.n.01
 
 
-Path similarity between w1 (cock) and w2 (ball), is: 0.14285714285714285
+4. Path similarity between w1 (cock) and w2 (ball), is: 0.14285714285714285
 [('dog.n.01', 'cat.n.01', 0.2), ('man.n.01', 'whale.n.01', 0.2), ('whale.n.01', 'man.n.01', 0.2), ('dog.n.01', 'man.n.01', 0.14285714285714285), ('dog.n.01', 'whale.n.01', 0.14285714285714285), ('dog.n.01', 'bark.n.01', 0.1111111111111111), ('man.n.01', 'bark.n.01', 0.1111111111111111), ('whale.n.01', 'bark.n.01', 0.1111111111111111), ('bark.n.01', 'man.n.01', 0.1111111111111111), ('bark.n.01', 'whale.n.01', 0.1111111111111111), ('man.n.01', 'cat.n.01', 0.08333333333333333), ('whale.n.01', 'cat.n.01', 0.08333333333333333), ('cat.n.01', 'man.n.01', 0.08333333333333333), ('cat.n.01', 'whale.n.01', 0.08333333333333333), ('bark.n.01', 'cat.n.01', 0.07142857142857142), ('cat.n.01', 'bark.n.01', 0.07142857142857142)]
-Best path similarity: 
+5. Best path similarity: 
 dog.n.01 cat.n.01
 man.n.01 whale.n.01
+6. Find path between 2 random sysnets: 
+Path similarity between w1 (star) and w2 (platinum), is: 0.08333333333333333

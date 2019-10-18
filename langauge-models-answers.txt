@@ -80,7 +80,7 @@
         = (48/5,473) * (2/15,091)/ (56/5,473) = 0.00011359656
 
         or 
-
+        (TA recommended, friend over heard it's supposed to be super simple and this is what we came up with)
         p(excellent restaurant) =
         = 2/6,218 = 0.000321647
 
@@ -99,6 +99,6 @@
         When you find a word that isn't in our frequency tables when calculating the probability of an unseen sentence, it will decrease the probability or the probabilit will be 0.
 
 7.)
-        I believe yes, they're because there's more context and it would help us better understand the words since we are given more context.
+        I believe yes, they're because there's more context and it would help us better understand the words since we are given more context. If length is small for the the ngrams, unigrams or bigrams would fit better.
 
 
