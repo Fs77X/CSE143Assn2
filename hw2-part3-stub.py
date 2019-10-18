@@ -225,6 +225,11 @@ def process_reviews(file_name):
     for word in fDistNeg5.most_common(5):
         print(word)
 
+    print('len of pos unigrams: ' + str(len(pos_noStop)))
+    print('len of neg unigrams: ' + str(len(neg_noStop)))
+    print('len of pos bigrams: ' + str(len(cfdistPos)))
+    print('len of neg bigrams: ' + str(len(cfdistNeg)))
+
 
 
     
@@ -262,3 +267,5 @@ if __name__ == '__main__':
     fname = args.fname
 
     process_reviews(fname)
+
+    

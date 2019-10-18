@@ -1,78 +1,101 @@
 1.)
-top 5 positive unigrams
-1. food 124
-2. s 88
-3. great 83
-4. place 61
-5. restaurant 56
+        top 5 positive unigrams
+        1. food 124
+        2. s 88
+        3. great 83
+        4. place 61
+        5. restaurant 56
 
-top 5 negative unigrams
-1. food 153
-2. restaurant 98
-3. us 95
-4. service 92
-5. t 90
+        top 5 negative unigrams
+        1. food 153
+        2. restaurant 98
+        3. us 95
+        4. service 92
+        5. t 90
 
-top 5 positive bigrams
-1. n t 37
-2. great food 13
-3. food excellent 12
-4. great place 9
-5. food service 8
+        top 5 positive bigrams
+        1. n t 37
+        2. great food 13
+        3. food excellent 12
+        4. great place 9
+        5. food service 8
 
-top 5 negative bigrams
-1. n t 88
-2. dining experience 12
-3. go back 10
-4. service food 8
-5. prime rib 8
+        top 5 negative bigrams
+        1. n t 88
+        2. dining experience 12
+        3. go back 10
+        4. service food 8
+        5. prime rib 8
 
-top 5 3grampos
-1. (('food', 'wonderful', 'service'), 4)
-2. (('wo', 'n', 't'), 4)
-3. (('millbrae', 'pancake', 'house'), 4)
-4. (('ca', 'n', 't'), 3)
-5. (('recommend', 'place', 'anyone'), 3)
+        top 5 3grampos
+        1. (('food', 'wonderful', 'service'), 4)
+        2. (('wo', 'n', 't'), 4)
+        3. (('millbrae', 'pancake', 'house'), 4)
+        4. (('ca', 'n', 't'), 3)
+        5. (('recommend', 'place', 'anyone'), 3)
 
-top 5 3gramneg
-1. (('n', 't', 'know'), 6)
-2. (('n', 't', 'even'), 6)
-3. (('n', 't', 'get'), 6)
-4. (('wo', 'n', 't'), 4)
-5. (('never', 'go', 'back'), 4)
+        top 5 3gramneg
+        1. (('n', 't', 'know'), 6)
+        2. (('n', 't', 'even'), 6)
+        3. (('n', 't', 'get'), 6)
+        4. (('wo', 'n', 't'), 4)
+        5. (('never', 'go', 'back'), 4)
 
-top 5 4grampos
-1. (('recommend', 'place', 'anyone', 'wants'), 2)
-2. (('great', 'food', 'great', 'prices'), 2)
-4. (('great', 'food', 'even', 'better'), 2)
-4. (('wo', 'n', 't', 'go'), 2)
-5. (('la', 'rosa', 'negra', 'favorite'), 2)
+        top 5 4grampos
+        1. (('recommend', 'place', 'anyone', 'wants'), 2)
+        2. (('great', 'food', 'great', 'prices'), 2)
+        4. (('great', 'food', 'even', 'better'), 2)
+        4. (('wo', 'n', 't', 'go'), 2)
+        5. (('la', 'rosa', 'negra', 'favorite'), 2)
 
-top 5 4gramneg
-1. (('1', 'chinese', 'bbq', 'restaurant'), 2)
-2. (('n', 't', 'care', 'customers'), 2)
-3. (('n', 't', 'even', 'apologize'), 2)
-4. (('would', 'recommend', 'restaurant', 'anyone'), 2)
-5. (('party', 'n', 't', 'show'), 2)
+        top 5 4gramneg
+        1. (('1', 'chinese', 'bbq', 'restaurant'), 2)
+        2. (('n', 't', 'care', 'customers'), 2)
+        3. (('n', 't', 'even', 'apologize'), 2)
+        4. (('would', 'recommend', 'restaurant', 'anyone'), 2)
+        5. (('party', 'n', 't', 'show'), 2)
 
-top 5 5grampos
-1. (('butternut', 'squash', 'ravioli', 'browned', 'butter'), 2)
-2. (('squash', 'ravioli', 'browned', 'butter', 'sage'), 2)
-3. (('excellent', 'restaurant', 'food', 'wonderful', 'service'), 1)
-4. (('restaurant', 'food', 'wonderful', 'service', 'friendly'), 1)
-5. (('food', 'wonderful', 'service', 'friendly', 'attentive'), 1)
+        top 5 5grampos
+        1. (('butternut', 'squash', 'ravioli', 'browned', 'butter'), 2)
+        2. (('squash', 'ravioli', 'browned', 'butter', 'sage'), 2)
+        3. (('excellent', 'restaurant', 'food', 'wonderful', 'service'), 1)
+        4. (('restaurant', 'food', 'wonderful', 'service', 'friendly'), 1)
+        5. (('food', 'wonderful', 'service', 'friendly', 'attentive'), 1)
 
-top 5 5gramneg
-1. (('place', 'nice', 'care', 'bbq', 'service'), 1)
-2. (('nice', 'care', 'bbq', 'service', 'n'), 1)
-3. (('care', 'bbq', 'service', 'n', 't'), 1)
-4. (('bbq', 'service', 'n', 't', 'forget'), 1)
-5. (('service', 'n', 't', 'forget', 'bring'), 1)
+        top 5 5gramneg
+        1. (('place', 'nice', 'care', 'bbq', 'service'), 1)
+        2. (('nice', 'care', 'bbq', 'service', 'n'), 1)
+        3. (('care', 'bbq', 'service', 'n', 't'), 1)
+        4. (('bbq', 'service', 'n', 't', 'forget'), 1)
+        5. (('service', 'n', 't', 'forget', 'bring'), 1)
 
 2.) 
-pos text: chez capo; highly recommend; mashed potatoes; pancake house; san francisco; millbrae pancake; wine list; rosa negra; several times; worth trip; big city; food excellent; sure try; head chef; something everyone; long time; 00pm tuesday; ala carte; outdoor patio; ravioli browned
-neg text: prime rib; coral grill; dining experience; fried rice; number one; crab legs; fine dining; taco bell; tourist trap; local boys; needless say; looked like; 227 bistro; health department; speak manager; sunset restaurant; wait staff; medium rare; half hour; sub par
+        pos text: chez capo; highly recommend; mashed potatoes; pancake house; san francisco; millbrae pancake; wine list; rosa negra; several times; worth trip; big city; food excellent; sure try; head chef; something everyone; long time; 00pm tuesday; ala carte; outdoor patio; ravioli browned
+        neg text: prime rib; coral grill; dining experience; fried rice; number one; crab legs; fine dining; taco bell; tourist trap; local boys; needless say; looked like; 227 bistro; health department; speak manager; sunset restaurant; wait staff; medium rare; half hour; sub par
 
-3.) p(w1) * p(w2|w1) (where w1 = excellent and w2 = restaurant)= (f(W1)/total in unigram) * (f(w2 in w1)/ total in bigrams) = (48/5,473) * (2/15,091) = 0.008770327 + 0.000132529 = 0.008902856
+3.) 
+        p(w1) * p(w2|w1) (where w1 = excellent and w2 = restaurant)
+        = (f(W1)/total in unigram) * (f(w2 in w1)/ total in bigrams) 
+        = (48/5,473) * (2/15,091)/ (56/5,473) = 0.00011359656
+        
+        p(w1) * p(w2) = p(excellent) * p(restaurant)
+        = (48/5,473) * (154/5,473) = 0.000246780626
+
 
 4.) 
+        P(an) * P(excellent | an) * P(restaurant | an, excellent)
+        This order is going to be using the second order and a 4-gram would be third order
+
+5.)
+
+        P(the U wine U list) = P(the) + P(wine) + P(list) - P(the n wine) - P(the n list) - P(wine n list) + P(the n wine n list)
+        = 0 + 17/6708 + 12/6708 + 0 + 0 + 6/6218 + 0 
+        = 0.005288137
+
+6.)
+        When you find a word that isn't in our frequency tables when calculating the probability of an unseen sentence, it will decrease the probability or the probabilit will be 0.
+
+7.)
+        I believe yes, they're because there's more context and it would help us better understand the words since we are given more context.
+
+
