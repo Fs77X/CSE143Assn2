@@ -140,12 +140,12 @@ def process_reviews(file_name):
     sorted_dNeg = list(sorted(dict4Neg.items(), key=operator.itemgetter(1)))
     sorted_dNeg.reverse()
 
-    fileOut = open('positve-word-freq.txt', 'w')
+    fileOut = open('positve-unigram-freq.txt', 'w')
     for word in sorted_dPos:
         fileOut.write(word[0] + ' ' + str(word[1]) + '\n')
 
     fileOut.close()
-    fileOut = open('negative-word-freq.txt', 'w')
+    fileOut = open('negative-unigram-freq.txt', 'w')
     for word in sorted_dNeg:
         fileOut.write(word[0] + ' ' + str(word[1]) + '\n')
 
